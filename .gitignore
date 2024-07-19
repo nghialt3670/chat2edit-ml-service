@@ -1,0 +1,6 @@
+*.png
+*.env
+*.jpg
+*.ipynb
+*/checkpoints
+__pycache__

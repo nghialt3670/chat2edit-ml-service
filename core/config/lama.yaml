@@ -1,0 +1,5 @@
+name: lama
+class_path: core.wrappers.lama_wrapper.LaMaWrapper
+init_params:
+  checkpoint: ./static/checkpoints/big-lama.pt
+  device: cuda

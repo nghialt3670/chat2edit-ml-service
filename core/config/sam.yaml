@@ -1,0 +1,6 @@
+name: sam
+class_path: core.wrappers.sam_wrapper.SamWrapper
+init_params:
+  model_type: vit_b
+  checkpoint: ./static/checkpoints/sam_vit_b_01ec64.pth
+  device: cuda
