@@ -3,7 +3,7 @@ import numpy as np
 import PIL.Image
 import torch
 from iopaint.model import LaMa
-from iopaint.schemas import InpaintRequest
+from iopaint.schema import InpaintRequest
 
 
 class LaMaWrapper(LaMa):

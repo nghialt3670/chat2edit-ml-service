@@ -5,7 +5,6 @@ import cv2
 import numpy as np
 from PIL import Image
 from pydantic import BaseModel, Field
-
 from utils.image import image_to_base64
 
 

@@ -1,10 +1,9 @@
 import traceback
 from typing import Any, List
 
+from core import get_model, get_model_manager
 from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
-
-from core import get_model, get_model_manager
 from schemas.image_model import ImageModel
 from schemas.mask_model import MaskModel
 

@@ -1,12 +1,11 @@
 import logging
 from contextlib import asynccontextmanager
 
+from api.v1 import grounded_sam, grounding_dino, lama, sam
+from core import model_manager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from GPUtil import getGPUs
-
-from api.v1 import grounded_sam, grounding_dino, lama, sam
-from core import model_manager
 
 logger = logging.getLogger("uvicorn")
 

@@ -4,7 +4,6 @@ from typing import Literal, Optional, Union
 import aiohttp
 from PIL import Image
 from pydantic import AnyUrl, Base64UrlStr, BaseModel, Field, HttpUrl
-
 from utils.image import base64_to_image, image_to_base64
 
 

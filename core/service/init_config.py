@@ -1,8 +1,7 @@
 from typing import Dict, Optional, Union
 
-from pydantic import BaseModel, Field
-
 from core.utils.helpers import read_yaml
+from pydantic import BaseModel, Field
 
 
 class ReferenceParam(BaseModel):

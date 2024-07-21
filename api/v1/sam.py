@@ -1,9 +1,8 @@
 from typing import Any, List, Literal, Optional, Tuple
 
+from core import get_model, get_model_manager
 from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel, Field
-
-from core import get_model, get_model_manager
 from schemas.image_model import ImageModel
 from schemas.mask_model import MaskModel
 

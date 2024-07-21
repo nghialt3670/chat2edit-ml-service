@@ -3,11 +3,10 @@ from typing import List, Tuple
 import groundingdino.datasets.transforms as T
 import numpy as np
 import torch
+from core.utils.helpers import suppress_stdout
 from groundingdino.util.inference import load_model, predict
 from PIL.Image import Image
 from torchvision.ops import box_convert
-
-from core.utils.helpers import suppress_stdout
 
 TRANSFORM = T.Compose(
     [
