@@ -1,7 +1,8 @@
 import logging
 from contextlib import asynccontextmanager
 
-from api.v1 import grounded_sam, grounding_dino, lama, sam
+from api.v1 import (grounded_sam, grounding_dino, lama, sam,
+                    stable_diffusion_inpaint)
 from core import model_manager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -36,3 +37,4 @@ app.include_router(grounded_sam.router)
 app.include_router(grounding_dino.router)
 app.include_router(lama.router)
 app.include_router(sam.router)
+app.include_router(stable_diffusion_inpaint.router)

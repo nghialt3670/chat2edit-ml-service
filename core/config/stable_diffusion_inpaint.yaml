@@ -1,0 +1,5 @@
+name: stable_diffusion_inpaint
+class_path: core.wrappers.stable_diffusion_inpaint_wrapper.StableDiffusionInpaintWrapper
+init_params:
+  hf_repo_id: stabilityai/stable-diffusion-2-inpainting
+  device: cuda

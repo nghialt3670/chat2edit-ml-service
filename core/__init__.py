@@ -8,9 +8,15 @@ MODEL_CONFIG_FILES = [
     "core/config/grounding_dino.yaml",
     "core/config/lama.yaml",
     "core/config/sam.yaml",
+    "core/config/stable_diffusion_inpaint.yaml",
 ]
 
-MODEL_NAME_TO_QUANTITY = {"grounding_dino": 1, "lama": 1, "sam": 1}
+MODEL_NAME_TO_QUANTITY = {
+    "grounding_dino": 0,
+    "lama": 0,
+    "sam": 0,
+    "stable_diffusion_inpaint": 1,
+}
 
 model_factory = Factory(MODEL_CONFIG_FILES)
 model_manager = ModelManager(model_factory, MODEL_NAME_TO_QUANTITY)
