@@ -14,8 +14,16 @@ class StableDiffusionInpaintWrapper:
     def __call__(
         self, image: PIL.Image.Image, mask: np.ndarray, prompt: str
     ) -> PIL.Image.Image:
-        return self.pipe(
+        original_size = image.size
+
+        # Run the inpainting pipeline
+        result_image = self.pipe(
             prompt=prompt,
             image=image.convert("RGB"),
             mask_image=PIL.Image.fromarray(mask),
         ).images[0]
+
+        # Resize the result image back to the original size
+        result_image = result_image.resize(original_size, PIL.Image.LANCZOS)
+
+        return result_image
