@@ -1,8 +1,6 @@
-import io
 import traceback
 from typing import List, Literal
 
-import PIL.Image
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
 from pydantic import TypeAdapter
@@ -10,9 +8,9 @@ from pydantic import TypeAdapter
 from core.types.box import Box
 from core.types.point import Point
 from deps.manager import get_predictor
-from utils.convert import upload_file_to_image
+from utils.convert import image_to_buffer, upload_file_to_image
 
-router = APIRouter()
+router = APIRouter(prefix="/api/v1")
 
 
 @router.post("/sam2")
@@ -41,10 +39,7 @@ async def predict(
         async with get_predictor("SAM2Predictor") as predictor:
             mask = predictor(image, box, points, point_labels)
 
-        buffer = io.BytesIO()
-        mask.save(buffer, format="PNG")
-        buffer.seek(0)
-
+        buffer = image_to_buffer(mask)
         return StreamingResponse(buffer, media_type="image/png")
 
     except Exception as e:

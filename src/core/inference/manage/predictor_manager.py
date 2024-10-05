@@ -8,6 +8,7 @@ from core.inference.predictors.predictor import Predictor
 
 logger = logging.getLogger("uvicorn")
 
+
 class PredictorManager:
     def __init__(self, inits: Iterable[PredictorInit]) -> None:
         self._inits = inits

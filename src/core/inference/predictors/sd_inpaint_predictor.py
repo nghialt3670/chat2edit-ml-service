@@ -24,5 +24,5 @@ class SDInpaintPredictor(Predictor):
         ).images[0]
 
         resized_image = result_image.resize(image.size, PIL.Image.LANCZOS)
-        
+
         return resized_image

@@ -1,14 +1,14 @@
-import logging
 from contextlib import asynccontextmanager
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from deps.manager import manager
 from routes.v1 import grounded_sam, lama, sam2, sd_inpaint
-from dotenv import load_dotenv
 
 load_dotenv()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

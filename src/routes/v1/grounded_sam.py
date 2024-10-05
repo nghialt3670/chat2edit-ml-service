@@ -7,8 +7,9 @@ from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
 
 from deps.manager import get_predictor
+from utils.convert import image_to_buffer
 
-router = APIRouter()
+router = APIRouter(prefix="/api/v1")
 
 
 @router.post("/grounded-sam")
@@ -29,11 +30,7 @@ async def predict(
             async with get_predictor("SAM2Predictor") as predictor:
                 for score, box in zip(scores, boxes):
                     mask = predictor(image, box=box)
-
-                    mask_buffer = io.BytesIO()
-                    mask.save(mask_buffer, format="PNG")
-                    mask_buffer.seek(0)
-
+                    mask_buffer = image_to_buffer(mask)
                     zip_file.writestr(f"{score:.3f}.png", mask_buffer.getvalue())
 
         zip_buffer.seek(0)
@@ -41,7 +38,6 @@ async def predict(
         return StreamingResponse(
             zip_buffer,
             media_type="application/zip",
-            headers={"Content-Disposition": "attachment; filename=masks.zip"},
         )
 
     except Exception as e:
