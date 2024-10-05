@@ -14,7 +14,6 @@ class PredictorManager:
         self._name_to_pool: Dict[str, PredictorPool] = {}
 
     def init(self) -> None:
-        print(os.getenv("HF_HOME"))
         for init in self._inits:
             name = init.type.__name__
             logger.info(f"Initializing {name}")

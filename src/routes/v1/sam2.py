@@ -1,9 +1,6 @@
 import io
-import json
 import traceback
-import zipfile
-from time import time
-from typing import List, Literal, Optional
+from typing import List, Literal
 
 import PIL.Image
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
@@ -27,7 +24,6 @@ async def predict(
 ):
     try:
         image = await upload_file_to_image(image)
-        print(box)
 
         try:
             if box:

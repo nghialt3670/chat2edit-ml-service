@@ -1,10 +1,7 @@
 import io
 import traceback
-import zipfile
-from time import time
 
-import PIL.Image
-from fastapi import APIRouter, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, File, HTTPException, UploadFile
 from fastapi.responses import StreamingResponse
 
 from deps.manager import get_predictor
