@@ -12,6 +12,6 @@ RUN pip install -r requirements.txt --no-compile
 
 ENV CUDA_HOME=/usr/local/cuda \
     HF_HOME=./static/checkpoints/huggingface_hub \ 
-    PYTHONPATH=/app
+    PYTHONPATH=/app/src
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000"]
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "9000"]
