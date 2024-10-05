@@ -1,7 +1,3 @@
-*.png
-*.env
-*.jpg
-*.ipynb
-*/checkpoints
 __pycache__
+.env
 checkpoints

@@ -1,8 +1,0 @@
-name: grounding_dino
-class_path: core.wrappers.grounding_dino_wrapper.GroundingDINOWrapper
-init_params:
-  config: ./core/config/GroundingDINO_SwinT_OGC.py
-  checkpoint: ./static/checkpoints/groundingdino_swint_ogc.pth
-  device: cuda
-  box_threshold: 0.35
-  text_threshold: 0.25
