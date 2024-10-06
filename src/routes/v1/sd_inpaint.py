@@ -9,7 +9,7 @@ from utils.convert import image_to_buffer, upload_file_to_image
 router = APIRouter(prefix="/api/v1")
 
 
-@router.post("/lama")
+@router.post("/sd-inpaint")
 async def predict(
     image: UploadFile = File(...), mask: UploadFile = File(...), prompt: str = Form(...)
 ):
